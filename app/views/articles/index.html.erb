@@ -1,0 +1,21 @@
+<h1 class="mb-5 text-center">My Articles</h1>
+
+<div class="container">
+  <ul class="list-group mb-4">
+    <% @articles.each do |article| %>
+      <li class="list-group-item">
+        <div>
+          <!-- Article Title -->
+          <h3 class="mb-2">
+            <%= link_to article.title, article_path(article), class: "text-decoration-none text-primary" %>
+          </h3>
+          <!-- Article Content Preview -->
+          <p class="text-muted">
+            <%= truncate(article.content, length: 100, separator: " ") %>
+          </p>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+</div>

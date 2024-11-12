@@ -1,0 +1,26 @@
+<div class="container mt-5">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <!-- Article Title with Edit and Delete Icons -->
+      <h2 class="card-title d-flex align-items-center justify-content-between">
+        <%= @article.title %>
+        <span class="ms-3">
+          <%= link_to edit_article_path(@article), class: "text-warning me-3", title: "Edit Article" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+          <%= link_to article_path(@article),
+                      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                      class: "text-danger", title: "Delete Article" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        </span>
+      </h2>
+
+      <!-- Article Content -->
+      <p class="card-text mt-4"><%= @article.content %></p>
+
+      <!-- Back Button -->
+      <%= link_to "Back", root_path, class: "btn btn-secondary mt-4" %>
+    </div>
+  </div>
+</div>
